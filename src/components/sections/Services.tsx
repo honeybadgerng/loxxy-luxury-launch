@@ -1,27 +1,30 @@
-
-import { useInView } from 'react-intersection-observer';
+import { useInView } from "react-intersection-observer";
 
 const services = [
   {
     title: "Brand Ambassadorships",
-    description: "Long-term partnerships representing your brand with authentic engagement and consistent promotion across multiple channels.",
-    image: "public/lovable-uploads/bc028830-e659-4223-9b10-194a5240a89b.png"
+    description:
+      "Long-term partnerships representing your brand with authentic engagement and consistent promotion across multiple channels.",
+    image: "/lovable-uploads/bc028830-e659-4223-9b10-194a5240a89b.png",
   },
   {
     title: "Modeling for Luxury Brands",
-    description: "Professional modeling services for fashion campaigns, product launches, real estate marketing, and automotive promotions.",
-    image: "public/lovable-uploads/32b9f149-88ed-47e0-8869-a0b8d7957b02.png"
+    description:
+      "Professional modeling services for fashion campaigns, product launches, real estate marketing, and automotive promotions.",
+    image: "/lovable-uploads/32b9f149-88ed-47e0-8869-a0b8d7957b02.png",
   },
   {
     title: "Social Media Promotions",
-    description: "Strategic content creation and promotion across Instagram, TikTok and other platforms, tailored to reach and engage your target audience.",
-    image: "public/lovable-uploads/62833b07-8056-456d-bbad-8c9c8d121f47.png"
+    description:
+      "Strategic content creation and promotion across Instagram, TikTok and other platforms, tailored to reach and engage your target audience.",
+    image: "/lovable-uploads/62833b07-8056-456d-bbad-8c9c8d121f47.png",
   },
   {
     title: "Event Hosting & Appearances",
-    description: "Professional hosting services and appearances at product launches, store openings, and exclusive industry events.",
-    image: "public/lovable-uploads/36cd70dd-a742-4ec2-84b5-0f847f508942.png"
-  }
+    description:
+      "Professional hosting services and appearances at product launches, store openings, and exclusive industry events.",
+    image: "/lovable-uploads/36cd70dd-a742-4ec2-84b5-0f847f508942.png",
+  },
 ];
 
 const Services = () => {
@@ -38,14 +41,14 @@ const Services = () => {
           Premium collaboration opportunities for luxury brands
         </p>
 
-        <div 
+        <div
           ref={ref}
           className={`grid grid-cols-1 md:grid-cols-2 gap-10 transition-all duration-700 ${
-            inView ? 'opacity-100' : 'opacity-0'
+            inView ? "opacity-100" : "opacity-0"
           }`}
         >
           {services.map((service, index) => (
-            <div 
+            <div
               key={index}
               className="group overflow-hidden bg-white dark:bg-darkgray dark:hover:bg-black/50 shadow-lg hover:shadow-xl transition-all duration-300 rounded-lg flex flex-col"
             >
@@ -60,15 +63,16 @@ const Services = () => {
                   {service.title}
                 </h3>
               </div>
-              
+
               <div className="p-6 flex-grow">
-                <p className="text-muted-foreground">
-                  {service.description}
-                </p>
+                <p className="text-muted-foreground">{service.description}</p>
               </div>
-              
+
               <div className="p-6 pt-0">
-                <a href="#contact" className="inline-block text-gold hover:underline">
+                <a
+                  href="#contact"
+                  className="inline-block text-gold hover:underline"
+                >
                   <span>Learn More</span>
                   <span className="ml-1">&rarr;</span>
                 </a>

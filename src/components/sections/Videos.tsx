@@ -1,26 +1,25 @@
-
-import { useInView } from 'react-intersection-observer';
-import { Play } from 'lucide-react';
+import { useInView } from "react-intersection-observer";
+import { Play } from "lucide-react";
 
 const videoPreviews = [
   {
     id: 1,
-    thumbnail: "public/lovable-uploads/965dfd22-a219-483c-ab6f-1fff56bb9467.png",
+    thumbnail: "/lovable-uploads/965dfd22-a219-483c-ab6f-1fff56bb9467.png",
     title: "Fashion Week Highlights",
-    duration: "2:45"
+    duration: "2:45",
   },
   {
     id: 2,
-    thumbnail: "public/lovable-uploads/88013195-8d26-4771-a58b-5268f8f1ebbd.png",
+    thumbnail: "/lovable-uploads/88013195-8d26-4771-a58b-5268f8f1ebbd.png",
     title: "Luxury Car Campaign",
-    duration: "1:30"
+    duration: "1:30",
   },
   {
     id: 3,
-    thumbnail: "public/lovable-uploads/5b642732-be04-4b94-aa3b-65416fe5f384.png",
+    thumbnail: "/lovable-uploads/5b642732-be04-4b94-aa3b-65416fe5f384.png",
     title: "Penthouse Tour",
-    duration: "3:20"
-  }
+    duration: "3:20",
+  },
 ];
 
 const Videos = () => {
@@ -39,10 +38,10 @@ const Videos = () => {
           Campaign Highlights
         </h3>
 
-        <div 
+        <div
           ref={ref}
           className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 transition-all duration-700 ${
-            inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
           {videoPreviews.map((video) => (
@@ -54,29 +53,29 @@ const Videos = () => {
                   className="w-full aspect-video object-cover object-center transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
-              
+
               {/* Play Button Overlay */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="w-16 h-16 flex items-center justify-center rounded-full bg-gold/80 text-white transition-transform duration-300 group-hover:scale-110">
                   <Play size={24} fill="white" />
                 </div>
               </div>
-              
+
               {/* Duration Badge */}
               <div className="absolute bottom-4 right-4 bg-black/70 text-white text-xs px-2 py-1 rounded">
                 {video.duration}
               </div>
-              
+
               {/* Video Title */}
               <h4 className="mt-4 text-lg font-medium">{video.title}</h4>
             </div>
           ))}
         </div>
-        
+
         <div className="text-center mt-12">
-          <a 
-            href="https://instagram.com/its_loxxy" 
-            target="_blank" 
+          <a
+            href="https://instagram.com/its_loxxy"
+            target="_blank"
             rel="noreferrer"
             className="btn-secondary inline-flex items-center gap-2"
           >
