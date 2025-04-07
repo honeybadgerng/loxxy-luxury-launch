@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import ThemeToggle from '../ui/ThemeToggle';
-import { Instagram } from 'lucide-react';
+import { Instagram, X, Menu } from 'lucide-react';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -59,11 +59,15 @@ const Navbar = () => {
             className="p-2"
             aria-label="Toggle mobile menu"
           >
-            <div className="w-6 flex flex-col items-end space-y-1.5">
-              <span className={`block h-0.5 bg-foreground transition-all duration-300 ${mobileMenuOpen ? 'w-6 rotate-45 translate-y-2' : 'w-6'}`}></span>
-              <span className={`block h-0.5 bg-foreground transition-all duration-300 ${mobileMenuOpen ? 'opacity-0' : 'w-4'}`}></span>
-              <span className={`block h-0.5 bg-foreground transition-all duration-300 ${mobileMenuOpen ? 'w-6 -rotate-45 -translate-y-2' : 'w-5'}`}></span>
-            </div>
+            {mobileMenuOpen ? (
+              <X size={24} className="text-foreground" />
+            ) : (
+              <div className="w-6 flex flex-col items-end space-y-1.5">
+                <span className="block h-0.5 bg-foreground w-6"></span>
+                <span className="block h-0.5 bg-foreground w-4"></span>
+                <span className="block h-0.5 bg-foreground w-5"></span>
+              </div>
+            )}
           </button>
         </div>
       </div>
