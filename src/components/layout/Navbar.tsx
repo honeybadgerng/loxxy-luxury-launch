@@ -1,11 +1,12 @@
 
 import { useState, useEffect } from 'react';
 import ThemeToggle from '../ui/ThemeToggle';
-import { Instagram, X, Menu } from 'lucide-react';
+import { Instagram, X } from 'lucide-react';
+import { Button } from '../ui/button';
+import { Sheet, SheetContent, SheetTrigger } from '../ui/sheet';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -54,68 +55,54 @@ const Navbar = () => {
         {/* Mobile Menu Button */}
         <div className="md:hidden flex items-center space-x-2">
           <ThemeToggle />
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2"
-            aria-label="Toggle mobile menu"
-          >
-            {mobileMenuOpen ? (
-              <X size={24} className="text-foreground" />
-            ) : (
-              <div className="w-6 flex flex-col items-end space-y-1.5">
-                <span className="block h-0.5 bg-foreground w-6"></span>
-                <span className="block h-0.5 bg-foreground w-4"></span>
-                <span className="block h-0.5 bg-foreground w-5"></span>
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="icon" className="p-1">
+                <div className="w-6 flex flex-col items-end space-y-1.5">
+                  <span className="block h-0.5 bg-foreground w-6"></span>
+                  <span className="block h-0.5 bg-foreground w-4"></span>
+                  <span className="block h-0.5 bg-foreground w-5"></span>
+                </div>
+                <span className="sr-only">Toggle menu</span>
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right" className="w-full sm:w-80 flex flex-col justify-center">
+              <div className="flex flex-col items-center space-y-8">
+                <a
+                  href="#about"
+                  className="text-2xl font-playfair"
+                >
+                  About
+                </a>
+                <a
+                  href="#portfolio"
+                  className="text-2xl font-playfair"
+                >
+                  Portfolio
+                </a>
+                <a
+                  href="#services"
+                  className="text-2xl font-playfair"
+                >
+                  Services
+                </a>
+                <a
+                  href="#contact"
+                  className="text-2xl font-playfair"
+                >
+                  Contact
+                </a>
+                <a
+                  href="https://instagram.com/its_loxxy"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-2xl font-playfair flex items-center gap-2"
+                >
+                  <Instagram /> Instagram
+                </a>
               </div>
-            )}
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile Menu */}
-      <div
-        className={`md:hidden fixed inset-0 z-40 bg-background dark:bg-card transition-transform duration-300 ease-in-out ${
-          mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
-        }`}
-      >
-        <div className="flex flex-col h-full justify-center items-center space-y-8 p-4">
-          <a
-            href="#about"
-            onClick={() => setMobileMenuOpen(false)}
-            className="text-2xl font-playfair"
-          >
-            About
-          </a>
-          <a
-            href="#portfolio"
-            onClick={() => setMobileMenuOpen(false)}
-            className="text-2xl font-playfair"
-          >
-            Portfolio
-          </a>
-          <a
-            href="#services"
-            onClick={() => setMobileMenuOpen(false)}
-            className="text-2xl font-playfair"
-          >
-            Services
-          </a>
-          <a
-            href="#contact"
-            onClick={() => setMobileMenuOpen(false)}
-            className="text-2xl font-playfair"
-          >
-            Contact
-          </a>
-          <a
-            href="https://instagram.com/its_loxxy"
-            target="_blank"
-            rel="noreferrer"
-            onClick={() => setMobileMenuOpen(false)}
-            className="text-2xl font-playfair flex items-center gap-2"
-          >
-            <Instagram /> Instagram
-          </a>
+            </SheetContent>
+          </Sheet>
         </div>
       </div>
     </header>
