@@ -5,7 +5,7 @@ const videoPreviews = [
   {
     id: 1,
     thumbnail: "/lovable-uploads/965dfd22-a219-483c-ab6f-1fff56bb9467.png",
-    title: "Fashion Week Highlights",
+    title: "Real Estate Showcase",
     duration: "2:45",
   },
   {
